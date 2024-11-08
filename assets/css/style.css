@@ -1,0 +1,1632 @@
+/* Constants */
+
+:root {
+    --icon-size: 24px;
+    --primary-color: #4285f4;
+    --peer-width: 120px;
+    color-scheme: light dark;
+}
+
+/* Layout */
+/* Container for input group and connect button */
+.input-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 0.5rem; /* Space between elements */
+}
+
+
+/* Styles for the recipient input box */
+.input-group.recipent {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    border-radius: 0.375rem; /* Rounded corners */
+    border: 1px solid #007bff; /* Blue border color */
+    background-color: transparent; /* Transparent background */
+    box-shadow: none; /* Remove box-shadow for a cleaner look */
+    flex: 1; /* Take up remaining space */
+    margin-left: 0rem; /* Push the input box to the right */
+}
+.dark-mode .input-group.recipent {
+    border: 2px solid white
+
+}
+.input-group.recipent .form-control {
+    border: none; /* Remove default border */
+    border-radius: 0.375rem 0 0 0.375rem; /* Rounded corners for the left side */
+    padding: 0.25rem 0.5rem; /* Smaller padding for a smaller input */
+    font-size: 0.875rem; /* Smaller font size */
+    color: #000000; /* Text color */
+    font-weight: bolder;
+    background-color: transparent; /* Transparent background */
+}
+.dark-mode .input-group.recipent .form-control {
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+}
+
+.input-group.recipent .btn-secondary {
+    border-radius: 0 0.375rem 0.375rem 0; /* Rounded corners for the right side */
+    border: 1px solid #007bff; /* Blue border color */
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White button text color */
+    padding: 0.25rem 0.5rem; /* Smaller padding for a smaller button */
+    font-size: 0.875rem; /* Smaller font size */
+}
+
+.input-group.recipent .btn-secondary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Match border color on hover */
+}
+
+.input-group.recipent .btn-secondary:focus {
+    box-shadow: none; /* Remove default focus shadow */
+}
+
+/* Styles for the connect button */
+.btn-connect {
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+    font-size: 0.75rem; /* Smaller font size */
+    border-radius: 0.25rem; /* Slightly rounded corners */
+    border: 1px solid #007bff; /* Blue border color */
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White text color */
+    line-height: 1; /* Reduce line height for a tighter fit */
+    margin-left: 0.5rem; /* Space between button and input box */
+}
+
+.btn-connect:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Match border color on hover */
+}
+
+.btn-connect:focus {
+    box-shadow: none; /* Remove default focus shadow */
+}
+
+/* Styles for the copy icon button */
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem; /* Rounded corners */
+    border: 1px solid #007bff; /* Blue border color */
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White text color */
+    padding: 0.25rem 0.5rem; /* Small padding */
+}
+
+.btn-secondary i {
+    color: #ffffff; /* White color for the icon */
+    font-size: 1rem; /* Adjust icon size */
+    vertical-align: middle; /* Center icon vertically */
+    padding: 0; /* Remove padding around the icon if not needed */
+}
+
+
+html {
+    height: 100%;
+}
+/* Basic styles for the modal */
+
+.full-screen-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 92vh;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(4px) saturate(150%);
+    justify-content: center;
+}
+
+.custom-modal {
+    padding: 15px;
+    width: 30%;
+    background-color: #ffffff; /* Lighter background color for light mode */
+    color: #212529; /* Darker text color for light mode */
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px gray;
+    margin-bottom: 100px;
+}
+
+.custom-modal > p {
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+}
+/* Aboout */
+
+
+/* Style the close icon button */
+
+
+
+
+
+/* Icon Button */
+
+
+
+
+.deny, .accept {
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    background-color: #f17d3a; /* Background color for buttons */
+    color: white;
+    cursor: pointer;
+}
+
+.accept:hover {
+    background-color: #ff5e00; /* Darker orange on hover */
+}
+
+.deny {
+    background-color: rgb(190, 23, 23); /* Red color */
+}
+#custom-nav p, 
+.iconic, 
+.down-uplo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recipent {
+    display: flex;
+    flex: 1;
+}
+
+.whole-body {
+    border-radius: 10px;
+}
+.deny:hover {
+    background-color: rgb(231, 3, 3); /* Darker red on hover */
+}
+
+/* Ensure consistent alignment within the container */
+/* Ensure the container for the arrows and text is in a row */
+.down-uplo {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Align items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Adjust spacing between items */
+}
+
+/* Ensure each icon and text is aligned correctly */
+.iconic {
+    display: flex; /* Use flexbox for layout within each section */
+    align-items: center; /* Center items vertically within each section */
+    flex-direction: row; /* Align items horizontally within each section */
+}
+
+/* Adjust the vertical alignment of arrow icons */
+.bi-arrow-up-circle, .bi-arrow-down-circle {
+    font-size: 25px; /* Set icon size */
+    margin-left: 10px; /* Add margin to the left of the icon */
+    margin-right: 10px; /* Add margin to the right of the icon */
+    vertical-align: middle; /* Align icons with surrounding text */
+    /* Optional: Adjust vertical position if needed */
+    margin-top: 5px; /* Adjust this value to align icons vertically */
+}
+
+/* Styling for the text next to the icons */
+#upload-spd, #download-spd {
+    margin-left: 5px; /* Adjust margin as needed */
+    font-size: 15px; /* Set font size */
+    /* Optional: Adjust vertical alignment if needed */
+    margin-top: 5px; /* Adjust this value to align text vertically */
+}
+
+
+
+
+
+
+header {
+    position: relative;
+    align-items: baseline;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    width: 100vw;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    min-height: 56px;
+}
+
+header.overflow-hidden {
+    overflow: hidden;
+}
+
+header:not(.overflow-expanded) {
+    height: 56px;
+}
+
+header > * {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+header > * {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    touch-action: manipulation;
+}
+
+header > .icon-button {
+    height: 40px;
+}
+
+header * {
+    transition: all 300ms;
+}
+/* Hover theme buttons */
+#theme-wrapper .icon-button {
+    transition: transform 0.2s ease, fill 0.2s ease;
+    cursor: pointer;
+}
+
+#theme-wrapper .icon-button:hover .icon {
+    transform: scale(1.1); /* Slightly enlarges the icon */
+    fill: #007bff; /* Change the color of the icon (adjust as needed) */
+}
+
+
+/* expand theme buttons */
+#theme-wrapper:not(:hover) .icon-button:not(.selected) {
+    height: 0;
+    opacity: 0;
+}
+
+#theme-wrapper:hover::before {
+    border-radius: 20px;
+    background: var(--primary-color);
+    opacity: 0.0;
+    transition: opacity 300ms;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 140px;
+    top: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #theme-wrapper:hover .icon-button:not(.selected):hover:before {
+        opacity: 0.3;
+    }
+
+    #theme-wrapper:hover .icon-button.selected::before {
+        opacity: 0.3;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    #theme-wrapper:before {
+        opacity: 0.3 !important;
+        height: 40px !important;
+    }
+
+    #theme-wrapper .icon-button:before {
+        opacity: 0;
+    }
+
+    #theme-wrapper .icon-button:not(.selected) {
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #theme-wrapper > div {
+        flex-direction: column-reverse;
+    }
+}
+
+#expand > .icon {
+    transition: transform 150ms ease-out
+}
+
+html:not([dir="rtl"]) #expand.flipped  > .icon {
+    transform: rotate(-90deg);
+}
+
+html[dir="rtl"] #expand.flipped  > .icon {
+    transform: rotate(90deg);
+}
+
+[hidden] {
+    display: none !important;
+}
+html,
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+.row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    
+  
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* Typography */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: 40px;
+    margin: 8px 0 0;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -.012em;
+    line-height: 32px;
+}
+
+.form-label {
+    font-size: 28px;
+    font-weight: 400;
+ 
+    line-height: 32px;
+    padding: 10px;
+    margin-left: 0px;
+    text-align: left;
+  
+    color: var(--primary-color);
+}
+.dark-mode .form-label {
+    color: #ffffff; /* Dark mode color */
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+.font-subheading {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    word-break: break-all;
+}
+
+.font-body1,
+body {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.font-body2 {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+    cursor: pointer;
+}
+
+
+
+/* Icons */
+
+.icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    fill: currentColor;
+}
+
+
+
+/* Shadows */
+
+[shadow="1"] {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+        0 1px 8px 0 rgba(0, 0, 0, 0.12),
+        0 3px 3px -2px rgba(0, 0, 0, 0.4);
+}
+
+[shadow="2"] {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12),
+        0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+/* Animations */
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+}
+
+/* Main Header */
+
+body>header a {
+    margin-left: 8px;
+}
+
+/* Peers List */
+x-peers {
+    width: 100%;
+    overflow: hidden;
+    flex-flow: row wrap;
+    z-index: 2;
+}
+/* Empty Peers List */
+x-no-peers {
+    padding: 8px;
+    text-align: center;
+    /* prevent flickering on load */
+    animation: fade-in 300ms;
+    animation-delay: 500ms;
+    animation-fill-mode: backwards;
+}
+x-no-peers h2,
+x-no-peers a {
+    color: var(--primary-color);
+}
+x-peers:not(:empty)+x-no-peers {
+    display: none;
+}
+/* Peer */
+x-peer {
+    -webkit-user-select: none;
+    user-select: none;
+}
+x-peer label {
+    width: var(--peer-width);
+    padding: 8px;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+}
+
+x-peer .name {
+    width: var(--peer-width);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+input[type="file"] {
+    visibility: hidden;
+    position: absolute;
+}
+
+x-peer x-icon {
+    --icon-size: 40px;
+    width: var(--icon-size);
+    padding: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    margin-bottom: 8px;
+    transition: transform 150ms;
+    will-change: transform;
+}
+
+x-peer:not([transfer]):hover x-icon,
+x-peer:not([transfer]):focus x-icon {
+    transform: scale(1.05);
+}
+
+x-peer[transfer] x-icon {
+    box-shadow: none;
+    opacity: 0.8;
+    transform: scale(1);
+}
+
+.status,
+.device-name {
+    height: 18px;
+    opacity: 0.7;
+}
+
+x-peer[transfer] .status:before {
+    content: 'Transferring...';
+}
+
+x-peer:not([transfer]) .status,
+x-peer[transfer] .device-name {
+    display: none;
+}
+
+x-peer x-icon {
+    animation: pop 600ms ease-out 1;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.7);
+    }
+
+    40% {
+        transform: scale(1.2);
+    }
+}
+
+x-peer[drop] x-icon {
+    transform: scale(1.1);
+}
+
+/* Ensure the input-container stays below the progress bar */
+
+
+
+
+/* Footer */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    padding: 0 0 16px 0;
+    text-align: center;
+}
+
+footer .logo {
+    --icon-size: 80px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+footer .font-body2 {
+    color: var(--primary-color);
+}
+
+@media (min-height: 800px) {
+    footer {
+        margin-bottom: 16px;
+    }
+}
+
+
+/* Dialog */
+
+x-dialog x-background {
+    background: rgba(0, 0, 0, 0.61);
+    z-index: 10;
+    transition: opacity 300ms;
+    will-change: opacity;
+    padding: 16px;
+}
+
+x-dialog x-paper {
+    z-index: 3;
+    background: white;
+    border-radius: 8px;
+    padding: 16px 24px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    transition: transform 300ms;
+    will-change: transform;
+}
+
+x-dialog:not([show]) {
+    pointer-events: none;
+}
+
+x-dialog:not([show]) x-paper {
+    transform: scale(0.1);
+}
+
+x-dialog:not([show]) x-background {
+    opacity: 0;
+}
+
+x-dialog .row-reverse>.button {
+    margin-top: 16px;
+    margin-left: 8px;
+}
+
+x-dialog a {
+    color: var(--primary-color);
+}
+
+/* Receive Dialog */
+#receiveDialog .row {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+/* Receive Text Dialog */
+
+#receiveTextDialog #text {
+    width: 100%;
+    word-break: break-all;
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    user-select: all;
+    white-space: pre-wrap;
+}
+
+#receiveTextDialog #text a {
+    cursor: pointer;
+}
+
+#receiveTextDialog #text a:hover {
+    text-decoration: underline;
+}
+
+#receiveTextDialog h3 {
+    /* Select the received text when double-clicking the dialog */
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Theme */
+
+.dark-mode {
+    background-color: #252222;
+    color: #e0e0e0;
+}
+
+
+
+/* Button */
+
+.button {
+    padding: 0 16px;
+    box-sizing: border-box;
+    min-height: 36px;
+    min-width: 100px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    background: inherit;
+    color: var(--primary-color);
+}
+
+.button,
+.icon-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+    border: none;
+    outline: none;
+}
+
+.button:before
+.icon-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.button:hover:before,
+.icon-button:hover:before {
+    opacity: 0.1;
+}
+
+.button:before {
+    border-radius: 8px;
+}
+
+.button:focus:before,
+.icon-button:focus:before {
+    opacity: 0.2;
+}
+
+
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+
+/* Icon Button */
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-button:before {
+    border-radius: 50%;
+}
+
+
+
+/* Text Input */
+
+.textarea {
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    padding: 16px 24px;
+    border-radius: 16px;
+    margin: 8px 0;
+    font-size: 14px;
+    font-family: inherit;
+    background: #f1f3f4;
+    display: block;
+    overflow: auto;
+    resize: none;
+    min-height: 40px;
+    line-height: 16px;
+    max-height: 300px;
+}
+/* Full Screen Modal */
+.full-screen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly dark background for the modal overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensure it's on top */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Custom Modal Box */
+.custom-modal {
+    background: rgba(51, 103, 214, 0.9); /* Semi-transparent blue */
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px; /* Medium size */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ffffff; /* White border */
+    position: relative;
+    text-align: center;
+    color: #ffffff; /* White text */
+}
+
+/* Modal Header */
+.custom-modal h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 20px;
+}
+
+/* File Input */
+.custom-modal input[type="file"] {
+    border: none;
+    padding: 10px;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+}
+
+/* Send Button */
+.custom-modal .send-btn {
+    background: #0056b3; /* Darker blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.custom-modal .send-btn:hover {
+    background: #004494; /* Even darker blue */
+}
+
+/* Close Button */
+.custom-modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0000; /* Red for the close button */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.custom-modal .close-btn:hover {
+    background: #cc0000; /* Darker red on hover */
+}
+
+
+/*new style send */
+/* General container styling */
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    max-width: 700px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Styling for file drop area */
+  .file-drop-area {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px dashed #007bff;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  .file-drop-area:hover {
+    background-color: #e7f0ff;
+  }
+  
+  .fake-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+  }
+  
+  .file-msg {
+    margin-top: 8px;
+    color: #6c757d;
+    font-size: 10px;
+  }
+  
+  /* Input field styling */
+  .file-input {
+    position:absolute;
+    display: none;
+  }
+  
+  /* Styling for the button */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .dark-mode   .btn-primary {
+    border: 2px solid white
+
+}
+  /* hidden the send */
+  .hidden {
+    display: none;
+    margin-bottom: 40px;
+    width: 40%;
+    height: 40%;
+  }
+  
+  .file-drop-area {
+    border: 2px dashed #ccc;
+    padding: 60px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .file-input {
+    position:absolute;
+    display: none; /* Hide the native file input */
+  }
+  
+  .fake-btn {
+    display: inline-block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .file-msg {
+    display: block;
+    margin-top: 10px;
+  }
+  
+   
+  .hide-during-preloader {
+    display: none !important;
+}
+
+
+
+
+
+/* Hide the main content initially */
+#main-content {
+    display: none;
+}
+
+
+   #wifi-loader {
+    --background: #62ABFF;
+    --front-color: #007bff;
+    --back-color: #C3C8DE;
+    --text-color: #414856;
+    width: 250px;
+    height: 250px;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #wifi-loader svg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #wifi-loader svg circle {
+    position: absolute;
+    fill: none;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(-100deg);
+    transform-origin: center;
+  }
+  
+  #wifi-loader .circle-outer {
+    height: 146px;
+    width: 146px;
+  }
+  
+  #wifi-loader .circle-outer circle.back {
+    stroke: var(--back-color);
+    stroke-dasharray: 62.75 188.25;
+    animation: circle-outer 1.8s ease infinite 0.3s;
+  }
+  
+  #wifi-loader .circle-outer circle.front {
+    stroke: var(--front-color);
+    stroke-dasharray: 62.75 188.25;
+    animation: circle-outer 1.8s ease infinite 0.15s;
+  }
+  
+  #wifi-loader .circle-middle {
+    height: 60px;
+    width: 60px;
+  }
+  
+  #wifi-loader .circle-middle circle.back {
+    stroke: var(--back-color);
+    stroke-dasharray: 42.5 127.5;
+    animation: circle-middle 1.8s ease infinite 0.25s;
+  }
+  
+  #wifi-loader .circle-middle circle.front {
+    stroke: var(--front-color);
+    stroke-dasharray: 42.5 127.5;
+    animation: circle-middle 1.8s ease infinite 0.1s;
+  }
+  
+  #wifi-loader .circle-inner {
+    height: 64px;
+    width: 64px;
+  }
+  
+  #wifi-loader .circle-inner circle.back {
+    stroke: var(--back-color);
+    stroke-dasharray: 22 66;
+    animation: circle-inner 1.8s ease infinite 0.2s;
+  }
+  
+  #wifi-loader .circle-inner circle.front {
+    stroke: var(--front-color);
+    stroke-dasharray: 22 66;
+    animation: circle-inner 1.8s ease infinite 0.05s;
+  }
+  
+  #wifi-loader .text  {
+    position: absolute;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.4px;
+  }
+  #wifi-loader .text::first-letter {
+    font-size: 100px; /* Adjust size of the first letter if needed */
+    font-weight: 1000; /* Make the first letter bolder if desired */
+}
+#wifi-loader .slogan {
+    position: relative;
+    font-size: 14px;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: -320px;
+    animation: text-animation 5.8s ease infinite;
+    margin-top: 10px; /* Space between the text and slogan */
+  }
+ 
+
+@keyframes text-animation {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+  
+  #wifi-loader .text::before,
+  #wifi-loader .text::after {
+    content: attr(data-text);
+  }
+  
+  #wifi-loader .text::before {
+    color: var(--text-color);
+  }
+  
+  #wifi-loader .text::after {
+    color: var(--front-color);
+    animation: text-animation 3.6s ease infinite;
+    position: absolute;
+    left: 0;
+  }
+  
+  @keyframes circle-outer {
+    0% {
+      stroke-dashoffset: 25;
+    }
+    25% {
+      stroke-dashoffset: 0;
+    }
+    65% {
+      stroke-dashoffset: 301;
+    }
+    80% {
+      stroke-dashoffset: 276;
+    }
+    100% {
+      stroke-dashoffset: 276;
+    }
+  }
+  
+  @keyframes circle-middle {
+    0% {
+      stroke-dashoffset: 17;
+    }
+    25% {
+      stroke-dashoffset: 0;
+    }
+    65% {
+      stroke-dashoffset: 204;
+    }
+    80% {
+      stroke-dashoffset: 187;
+    }
+    100% {
+      stroke-dashoffset: 187;
+    }
+  }
+  
+  @keyframes circle-inner {
+    0% {
+      stroke-dashoffset: 9;
+    }
+    25% {
+      stroke-dashoffset: 0;
+    }
+    65% {
+      stroke-dashoffset: 106;
+    }
+    80% {
+      stroke-dashoffset: 97;
+    }
+    100% {
+      stroke-dashoffset: 97;
+    }
+  }
+  
+  @keyframes text-animation {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    50% {
+      clip-path: inset(0);
+    }
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+  
+  /* Progress bar styling */
+  progress {
+    width: 100%; /* Adjust this width as needed */
+    height: 14px;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    border: 2px solid #dddddd;
+    margin: 2px 0;
+    margin-top: -300px;
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #e9ecef;
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: #007bff;
+    border-radius: 4px;
+  }
+  
+  progress::-moz-progress-bar {
+    background-color: #007bff;
+    border-radius: 4px;
+  }
+  
+  /* Label styling */
+  .label {
+    font-size: 16px;
+    font-weight: 400;
+    
+    color: #080808;
+    margin-bottom: 5px;
+  }
+ 
+  .dark-mode .label {
+    color: #ffffff; /* Dark mode color */
+}
+
+
+/* Info Animation */
+#about {
+    color: white;
+    z-index: 32;
+    overflow: hidden;
+    pointer-events: none;
+    text-align: center;
+}
+
+#about header {
+    z-index: 1;
+}
+
+#about:not(:target) header {
+    transition-delay: 400ms;
+}
+
+#about:target header {
+    transition-delay: 100ms;
+}
+
+#about > * {
+    transition: opacity 300ms ease 300ms;
+    will-change: opacity;
+    pointer-events: all;
+}
+
+#about:not(:target) > header,
+#about:not(:target) > section {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 0s;
+}
+
+#about .logo {
+    --icon-size: 96px;
+}
+
+#about .title-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+
+#about .title-wrapper > div {
+    margin-left: 0.4em;
+}
+
+#about x-background {
+    position: absolute;
+    --size: max(max(230vw, 230vh), calc(150vh + 150vw));
+    --size-half: calc(var(--size)/2);
+    top: calc(28px - var(--size-half));
+    width: var(--size);
+    height: var(--size);
+    z-index: -1;
+    background: var(--primary-color);
+    background-image: radial-gradient(circle at calc(50% - 36px), var(--accent-color) 0%, color-mix(in srgb, var(--accent-color) 40%, black) 80%);
+    --crop-size: 0px;
+    clip-path: circle(var(--crop-size));
+}
+
+html:not([dir="rtl"]) #about x-background {
+    right: calc(36px - var(--size-half));
+}
+
+html[dir="rtl"] #about x-background {
+    left: calc(36px - var(--size-half));
+}
+
+
+/* Hack such that initial scale(0) isn't animated */
+#about x-background {
+    will-change: clip-path;
+    transition: clip-path 800ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#about:target x-background {
+    --crop-size: var(--size);
+}
+
+#about .row a {
+    margin: 8px 8px -16px;
+}
+
+#about section {
+    flex-grow: 1;
+}
+
+
+
+
+
+/* Icon Button */
+
+.icon-button {
+    width: 48px;
+    height: 40px;
+}
+
+.icon-button:before {
+    border-radius: 50%;
+}
+h1 {
+    font-size: 26px; /* Adjust as needed */
+}
+
+h1 sub {
+    font-size: 0.7em; /* Adjust to make the subscript smaller */
+    vertical-align: sub;
+}
+
+h1 sub small {
+    font-size: 0.9em; /* Adjust to make the number smaller */
+}
+
+/* Loading Indicator */
+
+.progress {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0px;
+    clip: rect(0px, 80px, 80px, 40px);
+    --progress: rotate(0deg);
+    transition: transform 200ms;
+}
+
+
+.circle {
+    width: 72px;
+    height: 72px;
+    border: 4px solid var(--primary-color);
+    border-radius: 40px;
+    position: absolute;
+    clip: rect(0px, 40px, 80px, 0px);
+    will-change: transform;
+    transform: var(--progress);
+}
+
+.over50 {
+    clip: rect(auto, auto, auto, auto);
+}
+
+.over50 .circle.right {
+    transform: rotate(180deg);
+}
+
+
+/* Generic placeholder */
+[placeholder]:empty:before {
+    content: attr(placeholder);
+}
+
+/* Toast */
+
+.toast-container {
+    padding: 0 8px 24px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+x-toast {
+    position: absolute;
+    min-height: 48px;
+    bottom: 24px;
+    width: 100%;
+    max-width: 344px;
+    background-color: #323232;
+    color: rgba(255, 255, 255, 0.95);
+    align-items: center;
+    box-sizing: border-box;
+    padding: 8px 24px;
+    z-index: 20;
+    transition: opacity 200ms, transform 300ms ease-out;
+    cursor: default;
+    line-height: 24px;
+    border-radius: 8px;
+    pointer-events: all;
+}
+
+x-toast:not([show]):not(:hover) {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+
+/* Instructions */
+
+x-instructions {
+    position: absolute;
+    top: 120px;
+    opacity: 0.5;
+    transition: opacity 300ms;
+    z-index: -1;
+    text-align: center;
+}
+
+x-instructions:before {
+    content: attr(mobile);
+}
+
+x-peers:empty~x-instructions {
+    opacity: 0;
+}
+
+
+/* Responsive Styles */
+
+@media (min-height: 800px) {
+    footer {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (min-height: 800px),
+screen and (min-width: 1100px) {
+    x-instructions:before {
+        content: attr(desktop);
+    }
+}
+
+@media (max-height: 420px) {
+    x-instructions {
+        top: 24px;
+    }
+
+    footer .logo {
+        --icon-size: 40px;
+    }
+}
+
+/* 
+    iOS specific styles
+*/
+@supports (-webkit-overflow-scrolling: touch) {
+
+    
+    html {
+        position: fixed;
+    }
+
+    x-instructions:before {
+        content: attr(mobile);
+    }
+}
+
+
+/* Default colors */
+body {
+    --text-color: #333;
+    --bg-color: #fff;
+    --bg-color-secondary: #f1f3f4;
+}
+
+/* Dark theme colors */
+body.dark-theme {
+    --text-color: #eee;
+    --bg-color: #121212;
+    --bg-color-secondary: #333;
+}
+
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Colored Elements */
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.5s ease;
+}
+
+x-dialog x-paper {
+    background-color: var(--bg-color);
+}
+
+.textarea {
+    color: var(--text-color);
+    background-color: var(--bg-color-secondary);
+}
+
+
+@supports (-ms-ime-align: auto) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+}
+
+/* Popup box styling */
+.popup-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 15px; /* Slightly reduced padding */
+    border-radius: 8px;
+    border: 0.5px solid #007bff; /* Blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 70%; /* Reduced width for a smaller box */
+    max-width: 300px; /* Smaller max width */
+    text-align: center;
+}
+
+.popup-content h2 {
+    font-size: 1.3rem; /* Slightly smaller font */
+    margin-bottom: 8px;
+    color: #007bff;
+}
+
+.popup-content p {
+    font-size: 0.95rem; /* Slightly smaller font */
+    margin-bottom: 15px;
+     color: #585656;
+
+}
+
+.popup-content button {
+    padding: 8px 16px; /* Smaller padding */
+    font-size: 0.9rem;
+    cursor: pointer;
+    background-color: #007bff; /* Blue background for button */
+    color: #ffffff; /* White text for button */
+    border: none;
+    border-radius: 4px;
+}
+

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3367d6">
+    <meta name="color-scheme" content="dark light">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-title" content="Snapdrop">
+<!--Icons -->
+    <link rel="icon" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="shortcut icon" href="images/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="images/mstile-150x150.png">
+    <link rel="fluid-icon" type="image/png" href="images/android-chrome-192x192.png">
+    <meta name="twitter:image" content="https://snapdrop.net/images/twitter-stream.jpg">
+    <meta property="og:image" content="https://snapdrop.net/images/twitter-stream.jpg">
+    <!-- Resources -->
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+ <link rel="stylesheet" href="assets/css/style.css">
+ <title>SableShare</title>
+</head>
+
+<body>
+    <div id="wifi-loader">
+        <svg class="circle-outer" viewBox="0 0 86 86">
+            <circle class="back" cx="43" cy="43" r="40"></circle>
+            <circle class="front" cx="43" cy="43" r="40"></circle>
+            <circle class="new" cx="43" cy="43" r="40"></circle>
+        </svg>
+        <svg class="circle-middle" viewBox="0 0 60 60">
+            <circle class="back" cx="30" cy="30" r="27"></circle>
+            <circle class="front" cx="30" cy="30" r="27"></circle>
+        </svg>
+        <svg class="circle-inner" viewBox="0 0 34 34">
+            <circle class="back" cx="17" cy="17" r="14"></circle>
+            <circle class="front" cx="17" cy="17" r="14"></circle>
+        </svg>
+
+        
+        <div class="text" data-text="SableShare"></div>
+        <div class="slogan">
+            Get Ready to Share, We're Almost There
+          </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <header class="row-reverse">
+            <a href="#about"  class="icon-button" title="About Snapdrop">
+                <svg class="icon">
+                    <use xlink:href="#info-outline"/>
+                </svg>
+            </a>
+       
+              
+        <div id="theme-wrapper">
+          <div id="theme-auto" class="icon-button selected" data-i18n-key="header.theme-auto" data-i18n-attrs="title">
+              <svg class="icon">
+                  <use xlink:href="#icon-theme-auto"></use>
+              </svg>
+          </div>
+          <div>
+            
+              <div id="theme-light" class="icon-button" data-i18n-key="header.theme-light" data-i18n-attrs="title">
+                  <svg class="icon">
+                      <use xlink:href="#icon-theme-light"></use>
+                  </svg>
+              </div>
+              <div id="theme-dark" class="icon-button" data-i18n-key="header.theme-dark" data-i18n-attrs="title">
+                  <svg class="icon">
+                      <use xlink:href="#icon-theme-dark"></use>
+                  </svg>
+              </div>
+          </div>
+          
+      </div>
+      <div class="down-uplo">
+        <div class="iconic">
+            <i class="bi bi-arrow-up-circle ms-2 me-2 icons"></i>
+            <span class="me-3" id="upload-spd">0.00MB/s</span>
+        </div>
+        <div class="iconic">
+            <i class="bi bi-arrow-down-circle ms-2 me-2 icons"></i>
+            <span class="me-3" id="download-spd">0.00MB/s</span>
+        </div>
+    </div> 
+    </header>
+    <!-- File Received Successfully Popup -->
+<div id="file-received-popup" class="popup-box" style="display: none;">
+    <div class="popup-content">
+        <h2>File Received Successfully</h2>
+        <p>Your file has been received and saved.</p>
+        <button id="close-popup" class="btn btn-primary">Close</button>
+    </div>
+</div>
+
+
+
+    
+    <!-- Peers -->
+    <x-peers id="peers" class="center"></x-peers>
+    <x-no-peers id="no-peers">
+        <h2 id="no-peers-heading">Open SableShare on other devices to send files</h2>
+    </x-no-peers>
+
+    
+    <!-- Footer -->
+    
+ 
+
+    <!-- SVG Icon Library -->
+    <svg style="display: none;">
+        <symbol id="close" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+        </symbol>
+        
+        <symbol id=wifi-tethering viewBox="0 0 24 24">
+            <path d="M12 11c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 2c0-3.31-2.69-6-6-6s-6 2.69-6 6c0 2.22 1.21 4.15 3 5.19l1-1.74c-1.19-.7-2-1.97-2-3.45 0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.48-.81 2.75-2 3.45l1 1.74c1.79-1.04 3-2.97 3-5.19zM12 3C6.48 3 2 7.48 2 13c0 3.7 2.01 6.92 4.99 8.65l1-1.73C5.61 18.53 4 15.96 4 13c0-4.42 3.58-8 8-8s8 3.58 8 8c0 2.96-1.61 5.53-4 6.92l1 1.73c2.99-1.73 5-4.95 5-8.65 0-5.52-4.48-10-10-10z"></path>
+        </symbol>
+        <symbol id=desktop-mac viewBox="0 0 24 24">
+            <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"></path>
+        </symbol>
+        <symbol id="icon-theme-auto" viewBox="-54 -54 620 620">
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"></path>
+      </symbol>
+      <symbol id="icon-theme-light" viewBox="-54 -54 620 620">
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"></path>
+      </symbol>
+      <symbol id="icon-theme-dark" viewBox="0 0 24 24">
+          <rect fill="none" height="24" width="24"></rect><path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </symbol>
+
+        <symbol id=phone-iphone viewBox="0 0 24 24">
+            <path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"></path>
+        </symbol>
+        <symbol id=tablet-mac viewBox="0 0 24 24">
+            <path d="M18.5 0h-14C3.12 0 2 1.12 2 2.5v19C2 22.88 3.12 24 4.5 24h14c1.38 0 2.5-1.12 2.5-2.5v-19C21 1.12 19.88 0 18.5 0zm-7 23c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7.5-4H4V3h15v16z"></path>
+        </symbol>
+        <symbol id=info-outline viewBox="0 0 24 24">
+            <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"></path>
+        </symbol>
+       
+        <symbol id=help-outline viewBox="0 0 24 24">
+            <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
+        </symbol>
+       
+        <symbol id="icon-language-selector" viewBox="0 0 640 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"></path>
+        </symbol>
+        <symbol id="twitter">
+            <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
+        </symbol>
+        <symbol id="github">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        </symbol>
+        <g id="notifications">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+        </g>
+        <symbol id="full-moon" viewBox="0 0 24 24">
+            <path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2C8.58 2 5.34 4.63 4.17 8.68a7.5 7.5 0 0 0 2.42.56C12.28 9.23 14 11.68 14 14.5c0 3.03-2.47 5.5-5.5 5.5-1.34 0-2.59-.44-3.6-1.18C7.32 21.16 9.58 22 12 22z"/>
+        </symbol>
+        
+        <symbol id="homescreen">
+            <path fill="none" d="M0 0h24v24H0V0z" />
+            <path d="M18 1.01L8 1c-1.1 0-2 .9-2 2v3h2V5h10v14H8v-1H6v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM10 15h2V8H5v2h3.59L3 15.59 4.41 17 10 11.41z" />
+            <path fill="none" d="M0 0h24v24H0V0z" />
+        </symbol>
+        <symbol id="monetarization">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z" />
+        </symbol>
+        <symbol id="icon-theme" viewBox="0 0 24 24">
+         <rect fill="none" height="24" width="24"/><path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
+        </symbol>
+    </svg>
+   
+    <!-- label thyo hai div ko thauma select file -->
+    <div id="send-file-container" class="hidden">
+        <div for="" class="form-label">Select a file to Send</div>
+        <div class="input-group">
+            <div class="file-drop-area">
+                <span class="fake-btn">Choose files</span>
+                <span class="file-msg">or drag and drop files here</span>
+                <input class="file-input" type="file" id="file" multiple>
+            </div>
+            <button type="button" class="btn btn-primary ms-2 p-lg-4" id="Send">Send</button>
+        </div>
+        <div class="label pt-3">Send progress: </div>
+        <progress id="sendProgress" max="100" value="0" class="w-100"></progress>
+        <div class="label">Receive progress: </div>
+        <progress id="receiveProgress" max="100" value="0" class="w-100"></progress>
+    </div>
+    <footer class="column" >
+        <svg class="icon logo" id="wifi-tethering-logo">
+            <use xlink:href="#wifi-tethering">
+        </svg>
+        
+        <div class="input-container">
+            <div class="input-group recipent">
+                <input type="text" class="form-control" id="Recipient" placeholder="Recipient's ID"
+                    aria-label="Recipient's ID" aria-describedby="button-addon2">
+                <button class="btn btn-secondary" type="button" id="copyid"
+                    onclick="this.blur(); navigator.clipboard.writeText(localStorage.id); coppied(this)">
+                    <i class="bi bi-clipboard"></i>
+                </button>
+            </div>
+            <button class="btn btn-primary" type="button" id="Connect">Connect</button>
+        </div>
+        
+        <!-- <div class="font-body2">You can be discovered by everyone on this network</div> -->
+    </footer>
+       <!-- Full screen modal -->
+       <section class="full-screen-modal" id="popup-modal" hidden>
+        <div class="custom-modal">
+        </div>
+    </section>
+    </div>
+  
+  <!-- Full screen modal -->
+  <!-- About Page -->
+
+  
+    <!-- About Page -->
+    <x-about id="about" class="full center column">
+        <section class="center column fade-in">
+            <header class="row-reverse">
+                <a href="#" id="close-about" class="close icon-button">
+                    <svg class="icon">
+                        <use xlink:href="#close" />
+                    </svg>
+                </a>
+            </header>
+            <svg class="icon logo">
+                <use xlink:href="#wifi-tethering" />
+            </svg>
+            <h1>SableShare<sub>v<small>2.0</small></sub></h1>
+
+           
+            <div class="font-subheading">The easiest way to transfer files across devices</div>
+            <div class="row">
+                <a class="icon-button" target="_blank" href="https://github.com/Whysabin" title="Sableshare on Github" rel="noreferrer">
+                    <svg class="icon">
+                        <use xlink:href="#github" />
+                    </svg>
+                </a>
+                <a class="icon-button" target="_blank" href="" title="Help cover the server costs!" rel="noreferrer">
+                    <svg class="icon">
+                        <use xlink:href="#monetarization" />
+                    </svg>
+                </a>
+                <a class="icon-button" target="_blank" href="https://x.com/"Tweet about Snapdrop" rel="noreferrer">
+                    <svg class="icon">
+                        <use xlink:href="#twitter" />
+                    </svg>
+                </a>
+                <a class="icon-button" target="_blank" href="" title="Frequently asked questions" rel="noreferrer">
+                    <svg class="icon">
+                        <use xlink:href="#help-outline" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+        <x-background></x-background>
+    </x-about>
+  
+  
+
+  
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/webrtc-adapter/out/adapter.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web-streams-polyfill@2.0.2/dist/ponyfill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/streamsaver@2.0.3/StreamSaver.min.js"></script>
+<script src="assets/js/Signalling.js"></script>
+<script src="assets/js/RTCconnect.js"></script>
+
+
+<script>
+    function checkViewportHeightAndContainer() {
+    const heightThreshold = 550; // Adjust this value as needed
+    const sendFileContainer = document.getElementById('send-file-container');
+    const inputContainer = document.querySelector('.input-container');
+
+    // Check if the send file container is visible
+    const isSendFileContainerVisible = sendFileContainer && !sendFileContainer.classList.contains('hidden');
+
+    if (isSendFileContainerVisible && window.innerHeight < heightThreshold) {
+        inputContainer.style.display = 'none';
+    } else {
+        inputContainer.style.display = 'flex';
+    }
+}
+
+// Check the viewport height and visibility initially
+checkViewportHeightAndContainer();
+
+// Recheck the height when the window is resized (including when the developer console is expanded)
+window.addEventListener('resize', checkViewportHeightAndContainer);
+
+// Recheck whenever the send file container is shown (assuming it uses the 'hidden' class)
+document.getElementById('send-file-container').addEventListener('classlistchange', checkViewportHeightAndContainer);
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Simulate loading time or replace with your actual condition
+    setTimeout(function() {
+        document.getElementById('wifi-loader').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    }, 3000); // Adjust time as needed
+});
+
+    window.addEventListener('load', function() {
+        // Set a timeout to hide the preloader after 5 seconds
+        setTimeout(function() {
+            // Hide the preloader
+            document.getElementById('wifi-loader').style.display = 'none';
+
+            // Show the main content
+            document.querySelectorAll('.hide-during-preloader').forEach(function(el) {
+                el.style.display = '';
+            });
+        }, 3000); // 5000 milliseconds = 5 seconds
+    });
+</script>
+
+    
+<!-- <script src="scripts/network.js"></script>
+<script src="scripts/ui.js"></script>
+
+<script src="scripts/theme.js" async></script>
+<script src="scripts/clipboard.js" async></script> -->
+
+   
+    <script>
+
+        
+        function showSendFileSection() {
+          const sendFileContainer = document.getElementById('send-file-container');
+          sendFileContainer.classList.remove('hidden');
+
+     // Get the element by its ID
+const noPeersHeading = document.getElementById('no-peers-heading');
+
+// Check if the element exists and if the condition is met
+if (noPeersHeading ) {
+    noPeersHeading.classList.add('hidden');
+} else if (noPeersHeading) {
+    noPeersHeading.classList.remove('hidden');
+}
+
+
+    const wifiTetheringLogo = document.getElementById('wifi-tethering-logo');
+    if (wifiTetheringLogo) {
+      wifiTetheringLogo.classList.add('hidden');
+    }
+  
+        }
+      
+        function hideSendFileSection() {
+          const sendFileContainer = document.getElementById('send-file-container');
+          sendFileContainer.classList.add('hidden');
+        }
+      
+        function changeModal(data) {
+  let innerHTML = `<h2>${data.title}</h2>
+  <p>${data.body}</p>`;
+
+  if (data.file) {
+    const file = data.file;
+
+    // Check if the file is an image
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        innerHTML += `<div class="image-preview">
+          <img src="${event.target.result}" alt="Preview" style="max-width: 100%; height: auto;">
+        </div>`;
+        modal.firstElementChild.innerHTML = innerHTML;
+        modal.hidden = false;
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      innerHTML += `<p>File type is not supported for preview.</p>`;
+      modal.firstElementChild.innerHTML = innerHTML;
+      modal.hidden = false;
+    }
+  } else {
+    modal.firstElementChild.innerHTML = innerHTML;
+    modal.hidden = false;
+  }
+
+  if (data.confirm) {
+    innerHTML += `<div class="button">
+        <button class="deny" onclick="denial()">Deny</button>
+        <button class="accept"  onclick="accepting()">Accept</button>
+      </div>`;
+  }
+  modal.firstElementChild.innerHTML = innerHTML;
+  modal.hidden = false;
+
+  // Ensure event listeners are added after buttons are created
+  document.getElementById('acceptButton')?.addEventListener('click', accepting);
+  document.getElementById('denyButton')?.addEventListener('click', denial);
+
+      
+          // Show the send file section when the modal is shown
+          showSendFileSection();
+        }
+      
+        document.querySelector('.file-drop-area').addEventListener('click', function() {
+          document.querySelector('#file').click();
+        });
+      
+        document.querySelector('#file').addEventListener('change', function() {
+          let files = this.files;
+          if (files.length === 0) {
+            alert("No files selected.");
+            sendButton.disabled = false;
+            return;
+          }
+      
+          // Example: Log selected files
+          console.log(files);
+        });
+      
+        document.getElementById('Send').addEventListener('click', function () {
+          let fileInput = document.getElementById('file');
+          let files = fileInput.files;
+          if (files.length === 0) {
+            alert("No files selected.");
+            fileInput.value = '';
+    sendButton.disabled = false;
+            return;
+          }
+      
+          // Proceed with file sending logic
+
+          console.log(files);
+        });
+      
+        // Function to be called when peer connection is established
+        function onPeerConnected() {
+            
+            sendButton.disabled = false;
+            hideNoPeers(); // Hide the "no peers" heading text
+            hidePeers();   // Hide the peers element
+
+          // Show the send file section
+          showSendFileSection();
+           // Hide the footer logo
+ 
+}
+
+function onPeerDisconnected() {
+    hideSendFileSection();
+   
+}
+
+
+
+      // Add event listener to disconnect button
+
+        // Example of how to call onPeerConnected
+        // This should be called when the peer connection is successfully established
+        // onPeerConnected();
+      </script>
+      
+
+
+</body>
+</html>
